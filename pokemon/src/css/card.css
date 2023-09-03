@@ -1,0 +1,306 @@
+body {
+  background-color: #fff;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.App {
+  padding: 30px;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  max-width: 300px;
+}
+
+.box {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 60px 1fr 60px 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 20px;
+  background: #ffffff;
+  -webkit-box-shadow: 11px 11px 25px #e0e0e0, -11px -11px 25px #ffffff;
+          box-shadow: 11px 11px 25px #e0e0e0, -11px -11px 25px #ffffff;
+  cursor: pointer;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+  position: relative;
+  /* background-color: rgba(228,11,32,.2); */
+}
+.card::after {
+  content: "";
+  position: absolute;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+  background-image: url("../img/ball-1.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  max-width: 200px;
+  height: 100px;
+  opacity: 0.2;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+}
+.card::before {
+  content: "";
+  position: absolute;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+  background-image: url("../img/ball-2.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  max-width: 200px;
+  height: 100px;
+  opacity: 0.2;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+}
+.card:hover {
+  -webkit-box-shadow: 5px 5px 15px #bebebe, -5px -5px 15px #ffffff;
+          box-shadow: 5px 5px 15px #bebebe, -5px -5px 15px #ffffff;
+  background-color: #e40b20;
+  color: #fff;
+}
+.card:hover.card::after {
+  top: calc(50% - 50px);
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 0;
+}
+.card:hover.card::before {
+  top: calc(50% + 49px);
+  left: 50%;
+  bottom: auto;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.card-inner {
+  position: relative;
+  z-index: 1;
+}
+.card-inner .cardNames span {
+  font-size: 14px;
+  display: block;
+}
+
+.images {
+  max-width: 200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.images img {
+  width: 100%;
+}
+
+.item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 5px;
+}
+.itembox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.itembox .item {
+  margin-right: 15px;
+}
+.item .title {
+  background-color: #e40b20;
+  display: inline-block;
+  color: #fff;
+  font-weight: bold;
+  padding: 2px 10px;
+  border-radius: 9999px;
+  margin-right: 10px;
+}
+.item p {
+  margin: 0;
+}
+
+.btn {
+  outline: none;
+  border: none;
+  max-width: 300px;
+  width: 100%;
+  cursor: pointer;
+  padding: 15px 0;
+  border-radius: 9990px;
+  border: 2px solid #000;
+  font-size: 1.6rem;
+  margin-top: 60px;
+  position: relative;
+}
+.btn::before {
+  content: "";
+  background-image: url("../img/ball.svg");
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  margin-top: 3px;
+}
+.btn.prev {
+  background: #e40b20;
+  color: #fff;
+  margin-right: 10px;
+}
+.btn.prev::before {
+  left: 20px;
+}
+
+.btn.prev:hover.btn.prev::before {
+  left: 10px;
+  -webkit-transform: translateX(-10%) rotate(-0.1turn);
+          transform: translateX(-10%) rotate(-0.1turn);
+}
+
+.btn.next {
+  background: #fff;
+  color: #e40b20;
+  margin-left: 10px;
+}
+
+.btn.next::before {
+  right: 20px;
+}
+
+.btn.next:hover.btn.next::before {
+  right: 10px;
+  -webkit-transform: translateX(10%) rotate(0.1turn);
+          transform: translateX(10%) rotate(0.1turn);
+}
+
+.ReactModal__Overlay {
+  position: relative;
+  z-index: 99999;
+  outline: none;
+  background-color: rgba(228, 11, 32, 0.5) !important;
+}
+
+.modalbox {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  height: 80vh;
+  overflow-y: auto;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px;
+  border: none;
+  outline: none;
+}
+.modalbox .modal-inner {
+  padding: 30px;
+}
+.modalbox .modal-inner .cardNames {
+  margin: 0 0 20px 0;
+}
+
+.ReactModal__Body--open {
+  overflow: hidden;
+}
+
+.closebtn {
+  background: #e0e0e0;
+  border: none;
+  outline: none;
+  padding: 20px 10px;
+  width: 30%;
+  max-width: 500px;
+  margin: 50px auto 0;
+  display: block;
+  cursor: pointer;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  font-weight: bold;
+  font-size: 18px;
+}
+.closebtn:hover {
+  opacity: 0.6;
+}
+.closebtn-icon {
+  position: relative;
+  z-index: 99999;
+  display: block;
+  cursor: pointer;
+  background-color: #fff;
+  width: 60px;
+  height: 60px;
+  margin: -33px -30px 0 auto;
+}
+.closebtn-icon::before {
+  content: "";
+  width: 40px;
+  height: 2px;
+  background: #e40b20;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
+}
+.closebtn-icon::after {
+  content: "";
+  width: 40px;
+  height: 2px;
+  background: #e40b20;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+          transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.swiper-slide {
+  text-align: center;
+  background: #ececec;
+}
+
+.swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after {
+  color: #000;
+}
+
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
+  color: #000;
+}
+
+.swiper-pagination-bullet-active {
+  background: #000 !important;
+}
+
+.localbtnarea {
+  margin: 50px 0 100px;
+}
